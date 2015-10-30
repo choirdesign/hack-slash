@@ -8,7 +8,7 @@ public class EnemyBuild : SingletonMonoBehaviour<EnemyBuild> {
 
 
 	//敵の出現位置のCSV
-	public TextAsset enemyLayout;
+	private TextAsset enemyLayout;
 
 	//生成するオブジェクトの配列
 	public GameObject[] enemies;
@@ -24,8 +24,14 @@ public class EnemyBuild : SingletonMonoBehaviour<EnemyBuild> {
 		DontDestroyOnLoad (this);
 	}
 		
-
+	//カメラのStageManagerCollに呼ばれる
 	public void EnemySetUp() {
+
+		//CSV(Object型)を読み込んでTextAsset型にキャスト
+		Object elText;
+		elText = Resources.Load ("CSV/Enemies_Stage" + StageBuild.currentStage);
+		enemyLayout = elText as TextAsset;
+
 		//改行位置で区切る
 		char[] kaigyou = { '\r', '\n' }; //どちらも改行文字
 

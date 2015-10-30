@@ -2,6 +2,7 @@
 //シングルトンオブジェクトにくっついている
 //地面の座標がずれる不具合
 
+
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
@@ -30,7 +31,7 @@ public class StageBuild : MonoBehaviour {
 		}
 	}
 
-
+	//カメラのStageManagerCollに呼ばれる
 	public void StageSetUp(){
 
 		//Stageシーン上のゲームオブジェクトをFindする

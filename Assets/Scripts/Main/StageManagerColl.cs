@@ -11,6 +11,7 @@ public class StageManagerColl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		stageManager = GameObject.Find ("StageManager");
+
 		stageManager.SendMessage ("EnemySetUp");
 		stageManager.SendMessage ("StageSetUp");
 	
