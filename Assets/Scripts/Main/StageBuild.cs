@@ -76,6 +76,8 @@ public class StageBuild : MonoBehaviour {
 		ground_2.sprite = Sprite.Create( Gtex2, new Rect( 0, 0, Gtex2.width, Gtex2.height ), new Vector2(0.5f, 0.5f) );
 		ground_3.sprite = Sprite.Create( Gtex3, new Rect( 0, 0, Gtex3.width, Gtex3.height ), new Vector2(0.5f, 0.5f) );
 
+		//1.0
+		//ground_3.sprite = Sprite.Create( Gtex3, new Rect( 0, 0, Gtex3.width, Gtex3.height ), new Vector2(0.5f, 0.5f) );
 
 		/*
 		if (distant.sprite == null) {

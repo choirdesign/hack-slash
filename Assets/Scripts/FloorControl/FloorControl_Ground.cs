@@ -12,7 +12,7 @@ public class FloorControl_Ground : MonoBehaviour {
 	private GameObject main_camera;
 
 	public float	WIDTH;			//パーツの幅
-	public int	MODEL_NUM;		//パーツの数
+	public float	MODEL_NUM;		//パーツの数
 
 	private float playerSpeed;
 	public int speed = 3;	//スクロール速度 0でもっとも遅い
