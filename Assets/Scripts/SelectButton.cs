@@ -7,12 +7,6 @@ public class SelectButton : MonoBehaviour {
 
 	private string buttonTag;
 	public static int tagNum;
-	//public StageBuilder stageBuilder;
-
-	void Start () {
-
-
-	}
 
 	//ボタンを押した時
 	public void SendStageTag () {

@@ -18,8 +18,6 @@ public class EnemyControl : MonoBehaviour {
 	}
 
 	//isDeadがtrueになったらplayerに知らせる
-
-
 	//死んだらplayerにメッセージを送って消える
 	void OnCollisionStay2D (Collision2D col){
 		isDead = BattleManager.isEnemyDead;

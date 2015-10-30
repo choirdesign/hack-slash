@@ -6,7 +6,7 @@
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
 	<RootNamespace></RootNamespace>
-	<ProjectGuid>{AEE200AB-41EC-DCBC-366F-2AE2B18F8FE0}</ProjectGuid>
+	<ProjectGuid>{47BAD5EB-8A60-75C9-D8A8-E17C44398E74}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<AssemblyName>Assembly-CSharp</AssemblyName>
@@ -45,12 +45,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Increment.cs" />
      <Compile Include="Assets\Scripts\Main\AtkButton.cs" />
      <Compile Include="Assets\Scripts\Main\BattleManager.cs" />
      <Compile Include="Assets\Scripts\Main\ClearText.cs" />
      <Compile Include="Assets\Scripts\Main\EnemyBuild.cs" />
      <Compile Include="Assets\Scripts\Main\EnemyControl.cs" />
-     <Compile Include="Assets\Scripts\Main\EnemyFadeOut.cs" />
+     <Compile Include="Assets\Scripts\Main\EnemyDestroy.cs" />
      <Compile Include="Assets\Scripts\Main\FadeManager.cs" />
      <Compile Include="Assets\Scripts\Main\FloorControl_Distant.cs" />
      <Compile Include="Assets\Scripts\Main\FloorControl_Distant_alt.cs" />
@@ -73,6 +74,7 @@
      <Compile Include="Assets\Scripts\SceneTransition\ToStatus.cs" />
      <Compile Include="Assets\Scripts\SelectButton.cs" />
      <Compile Include="Assets\Scripts\SingletonMonoBehaviour.cs" />
+     <Compile Include="Assets\StageEnabled.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
