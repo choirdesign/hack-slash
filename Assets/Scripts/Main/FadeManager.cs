@@ -26,6 +26,8 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>
 
 		//ここで黒テクスチャを作っておく
 		this.blackTexture = new Texture2D (32, 32, TextureFormat.RGB24, false);
+
+		//this.blackTexture.ReadPixels (new Rect (0, 0, 32, 32), 0, 0, false);
 		this.blackTexture.ReadPixels (new Rect (0, 0, 32, 32), 0, 0, false);
 		this.blackTexture.SetPixel (0, 0, Color.white);
 		this.blackTexture.Apply ();

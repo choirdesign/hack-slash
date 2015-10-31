@@ -3,6 +3,8 @@
 //地面の座標がずれる不具合
 
 
+
+
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
