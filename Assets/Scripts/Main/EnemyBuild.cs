@@ -20,7 +20,7 @@ public class EnemyBuild : SingletonMonoBehaviour<EnemyBuild> {
 	private float spawnHeight = 1.71f; //敵が生成される高さ
 
 	//instantiateしたオブジェクトに情報を渡したい
-	private int accessNum;
+	private int objNum;
 
 
 	public  void Awake () {
@@ -66,16 +66,16 @@ public class EnemyBuild : SingletonMonoBehaviour<EnemyBuild> {
 		string[] eachInfo;
 
 		//3行目から読み始める
-		for (accessNum = 2; accessNum < layoutInfo.Length; accessNum++) {
+		for (int i = 2; i < layoutInfo.Length; i++) {
 			//カンマで区切る
-			eachInfo = layoutInfo [accessNum].Split ("," [0]);
+			eachInfo = layoutInfo [i].Split ("," [0]);
 			Debug.Log (eachInfo [0]);
 
 
-			int objNumber = getObj (eachInfo [0]);
+			objNum = getObj (eachInfo [0]);
 
 			//#1 [objNumber]番目のオブジェクトを取得
-			GameObject obj = enemies [objNumber];
+			GameObject obj = enemies [objNum];
 
 			//#2 2文字目[1]をx座標、3文字目[2]をy座標に設定(Parse()で文字列を整数値に)する
 			Vector2 pos = new Vector2 (float.Parse (eachInfo [1]),
@@ -101,9 +101,11 @@ public class EnemyBuild : SingletonMonoBehaviour<EnemyBuild> {
 		GameObject enemy = Instantiate(obj,
 			new Vector3 (pos.x, pos.y, 1),
 			obj.transform.rotation) as GameObject;
+
+		//生成したオブジェクトに
 		EnemyStats es = enemy.GetComponent<EnemyStats> ();
 	
-		es.EnemyInit (accessNum);
+		es.EnemyInit (objNum + 2); //最初の2行が説明文のため
 
 	}
 
