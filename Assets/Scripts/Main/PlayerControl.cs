@@ -45,13 +45,12 @@ public class PlayerControl : MonoBehaviour {
 
 	//攻撃アニメーションを表示
 	public void ChangeAnimAtk () {
-		Debug.Log ("callAtk");
 		StartCoroutine ("Anim");
 	}
 
 	private IEnumerator Anim () {
 		this.GetComponent<Animator> ().SetBool ("playerAtk", true);
-		yield return new WaitForSeconds (0.05f);
+		yield return new WaitForSeconds (0.02f);
 		this.GetComponent<Animator> ().SetBool ("playerAtk", false);
 
 	}

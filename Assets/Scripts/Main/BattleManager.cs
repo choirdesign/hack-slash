@@ -11,9 +11,6 @@
 //isDead hpが0で オブジェクトを破棄 enemyならオブジェクト破棄 playerなら負けモーション
 //BattleStateEnd playerのcollisionが無効になったら 移動を再開 ボタンを無効にする (上から透明な画像を貼っておく？
 
-//必要な情報
-//接触している敵の情報
-//プレイヤー アニメーションの遷移
 
 using UnityEngine;
 using System.Collections;

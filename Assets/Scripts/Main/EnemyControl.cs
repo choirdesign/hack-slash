@@ -22,6 +22,9 @@ public class EnemyControl : MonoBehaviour {
 	//自分自身のステータスが知りたい
 	private EnemyStats enemyStats;
 
+	//HPゲージ
+	private GameObject childSlider;
+	private Slider eHpGauge;
 
 	void Start () {
 		player = GameObject.FindWithTag ("Player"); //SendMessage用
@@ -36,14 +39,22 @@ public class EnemyControl : MonoBehaviour {
 		myName = childText.GetComponent<Text> ();
 
 		enemyStats = this.gameObject.GetComponent<EnemyStats> ();
-
+		//自分のテキストに名前を表示
 		myName.text = enemyStats.eName;
 
+		childSlider = childCanvas.gameObject.transform.FindChild ("Slider").gameObject;
+		eHpGauge = childSlider.GetComponent<Slider> ();
 
-
-
-
+		//HPゲージの最大値を敵のHPの最大値で初期化
+		eHpGauge.maxValue = enemyStats.eHp;
 	}
+
+	void Update () {
+		//現在のHPを更新
+		eHpGauge.value = enemyStats.eHp;
+	}
+
+
 
 	//isDeadがtrueになったらplayerに知らせる
 	//死んだらplayerにメッセージを送って消える

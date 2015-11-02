@@ -68,7 +68,6 @@ public class EnemyBuild : SingletonMonoBehaviour<EnemyBuild> {
 		for (int i = 2; i < layoutInfo.Length; i++) {
 			//カンマで区切る
 			eachInfo = layoutInfo [i].Split ("," [0]);
-			Debug.Log (eachInfo [0]);
 
 
 			objNum = getObj (eachInfo [0]);
