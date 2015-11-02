@@ -36,7 +36,6 @@ public class EnemyBuild : SingletonMonoBehaviour<EnemyBuild> {
 		enemyInfo = eiText as TextAsset;
 		char[] kaigyou = { '\r', '\n' };
 		enemyEachLine = enemyInfo.text.Split (kaigyou);
-		Debug.Log (enemyEachLine [3]);
 
 	}
 
@@ -102,10 +101,9 @@ public class EnemyBuild : SingletonMonoBehaviour<EnemyBuild> {
 			new Vector3 (pos.x, pos.y, 1),
 			obj.transform.rotation) as GameObject;
 
-		//生成したオブジェクトに
+		//生成したオブジェクトにステータス情報を渡す
 		EnemyStats es = enemy.GetComponent<EnemyStats> ();
-	
-		es.EnemyInit (objNum + 2); //最初の2行が説明文のため
+		es.EnemyInit (objNum + 2); //最初の2行が説明文のため、+2
 
 	}
 

@@ -14,7 +14,6 @@
 //必要な情報
 //接触している敵の情報
 //プレイヤー アニメーションの遷移
-//ボタンを無効にするために上からはるimage buttonavailable
 
 using UnityEngine;
 using System.Collections;
@@ -36,7 +35,6 @@ public class BattleManager : MonoBehaviour {
 	void Update () {
 		isButtonEnabled ();
 
-
 	}
 
 	void isButtonEnabled () {
@@ -51,12 +49,11 @@ public class BattleManager : MonoBehaviour {
 	public void PlayerAtk() {
 		Debug.Log ("PlayerAtk");
 		//col = player.GetComponent<Collider2D> ();
+
 		isEnemyDead = true;
-	
+		
 	}
-
-
-
+		
 
 
 

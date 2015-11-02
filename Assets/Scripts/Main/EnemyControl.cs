@@ -1,6 +1,6 @@
 ﻿//BattleManager.isEnemyDeadフラグを監視している
 //Destroyの前にフェードアウトさせたい → EnemyDestroyで実装
-//ここから子オブジェクトのテキストにアクセスできるかな？
+//敵の名前を表示　HPのゲージ反映をここでするか、別のクラスにさせるか・・・
 
 using UnityEngine;
 using System.Collections;
@@ -19,6 +19,9 @@ public class EnemyControl : MonoBehaviour {
 	private GameObject childText;
 	private Text myName;
 
+	//自分自身のステータスが知りたい
+	private EnemyStats enemyStats;
+
 
 	void Start () {
 		player = GameObject.FindWithTag ("Player"); //SendMessage用
@@ -32,15 +35,26 @@ public class EnemyControl : MonoBehaviour {
 		//さらにテキストオブジェクトからテキストコンポーネントを取得
 		myName = childText.GetComponent<Text> ();
 
-		Debug.Log (myName.text);
-		//出力結果 = さだのぶ
+		enemyStats = this.gameObject.GetComponent<EnemyStats> ();
+
+		myName.text = enemyStats.eName;
+
+
+
+
 
 	}
 
 	//isDeadがtrueになったらplayerに知らせる
 	//死んだらplayerにメッセージを送って消える
 	void OnCollisionStay2D (Collision2D col){
+		//死んでないか確認　
 		isDead = BattleManager.isEnemyDead;
+
+		if (!isDead) {
+
+		}
+
 
 		Debug.Log ("衝突中〜");//衝突中はUpdateみたいに走り続ける
 

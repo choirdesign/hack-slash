@@ -54,6 +54,16 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 
+	private void OnCollisionEnter2D(Collision2D col) {
+		GameObject eInfo;
+		eInfo = col.gameObject;
+		EnemyStats eStats;
+		eStats = eInfo.GetComponent<EnemyStats> ();
+		Debug.Log (eStats.eName + "とぶつかった！");
+	}
+
+
+
 
 	//ステージクリア時のアニメーションに切り替え
 	void ChangeAnimWin () {
