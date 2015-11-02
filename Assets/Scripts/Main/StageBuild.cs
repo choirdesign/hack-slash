@@ -46,13 +46,8 @@ public class StageBuild : MonoBehaviour {
 		ground_3 = GameObject.Find ("BGPanel_ground3").GetComponent<SpriteRenderer>();
 
 
-		Debug.Log ("BEFORE groundposition = " + ground_1.transform.position);
-
-		Debug.Log ("currentstagenumber = " + currentStage);//押したボタンの数字が入ってる！
-
 		//まずObject型に代入する
 		Object loadDSprite = Resources.Load( "Images/BG_distant_" + currentStage.ToString() ); //遠景
-
 		Object loadNSprite1 = Resources.Load( "Images/BG_near_" + currentStage.ToString() + "_1" ); //近景1
 		Object loadNSprite2 = Resources.Load( "Images/BG_near_" + currentStage.ToString() + "_2" ); //近景2
 		Object loadNSprite3 = Resources.Load( "Images/BG_near_" + currentStage.ToString() + "_3" ); //近景3

@@ -17,20 +17,22 @@ public class EnemyControl : MonoBehaviour {
 	public GameObject me;
 	private GameObject childCanvas;
 	private GameObject childText;
-	private Text name;
+	private Text myName;
 
 
 	void Start () {
 		player = GameObject.FindWithTag ("Player"); //SendMessage用
 
+
+		//自身のEnemyStatsから引数つきで実行されるように改良したい
 		//敵プレハブの子のキャンバスを取得
 		childCanvas = me.gameObject.transform.FindChild ("Canvas").gameObject;
 		//キャンバスの子のテキストオブジェクトを取得
 		childText = childCanvas.gameObject.transform.FindChild ("Text").gameObject;
 		//さらにテキストオブジェクトからテキストコンポーネントを取得
-		name = childText.GetComponent<Text> ();
+		myName = childText.GetComponent<Text> ();
 
-		Debug.Log (name.text);
+		Debug.Log (myName.text);
 		//出力結果 = さだのぶ
 
 	}
@@ -39,6 +41,8 @@ public class EnemyControl : MonoBehaviour {
 	//死んだらplayerにメッセージを送って消える
 	void OnCollisionStay2D (Collision2D col){
 		isDead = BattleManager.isEnemyDead;
+
+		Debug.Log ("衝突中〜");//衝突中はUpdateみたいに走り続ける
 
 		if (isDead) {
 			player.SendMessage ("ExitBattle");

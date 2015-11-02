@@ -1,14 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Main/EnemyControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/EnemyStats.cs">
     <Files>
-      <File FileName="Assets/Scripts/Main/EnemyBuild.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Main/StageBuild.cs" Line="1" Column="1" />
-      <File FileName="Assets/Resources/CSV/Enemies_Stage1.csv" Line="1" Column="1" />
-      <File FileName="Assets/Resources/CSV/EnemyInfo.csv" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/FloorControl/FloorControl_Ground.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Main/FadeManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Main/EnemyControl.cs" Line="32" Column="3" />
+      <File FileName="Assets/Scripts/Main/EnemyControl.cs" Line="20" Column="1" />
+      <File FileName="Assets/EnemyStats.cs" Line="34" Column="35" />
+      <File FileName="Assets/Scripts/Main/EnemyBuild.cs" Line="107" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

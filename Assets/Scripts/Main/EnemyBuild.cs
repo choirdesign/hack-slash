@@ -10,9 +10,17 @@ public class EnemyBuild : SingletonMonoBehaviour<EnemyBuild> {
 	//敵の出現位置のCSV
 	private TextAsset enemyLayout;
 
+	//敵全ての情報が入っているCSV
+	private TextAsset enemyInfo;
+	//1行ごとに格納　どこからでも呼び出せるように
+	public static string[] enemyEachLine;
+
 	//生成するオブジェクトの配列
 	public GameObject[] enemies;
 	private float spawnHeight = 1.71f; //敵が生成される高さ
+
+	//instantiateしたオブジェクトに情報を渡したい
+	private int accessNum;
 
 
 	public  void Awake () {
@@ -22,7 +30,22 @@ public class EnemyBuild : SingletonMonoBehaviour<EnemyBuild> {
 			return;
 		}
 		DontDestroyOnLoad (this);
+
+		Object eiText;
+		eiText = Resources.Load ("CSV/EnemyInfo");
+		enemyInfo = eiText as TextAsset;
+		char[] kaigyou = { '\r', '\n' };
+		enemyEachLine = enemyInfo.text.Split (kaigyou);
+		Debug.Log (enemyEachLine [3]);
+
 	}
+
+
+
+
+
+
+
 		
 	//カメラのStageManagerCollに呼ばれる
 	public void EnemySetUp() {
@@ -42,9 +65,10 @@ public class EnemyBuild : SingletonMonoBehaviour<EnemyBuild> {
 		//１行の１文字ずついれる配列
 		string[] eachInfo;
 
-		for (int i = 2; i < layoutInfo.Length; i++) {
+		//3行目から読み始める
+		for (accessNum = 2; accessNum < layoutInfo.Length; accessNum++) {
 			//カンマで区切る
-			eachInfo = layoutInfo [i].Split ("," [0]);
+			eachInfo = layoutInfo [accessNum].Split ("," [0]);
 			Debug.Log (eachInfo [0]);
 
 
@@ -74,9 +98,13 @@ public class EnemyBuild : SingletonMonoBehaviour<EnemyBuild> {
 	//GameObjectと位置（z座標除く）を引数として渡し、その位置にGameObjectを生成。
 	void createObj(GameObject obj, Vector2 pos)
 	{
-		object go = Instantiate(obj,
+		GameObject enemy = Instantiate(obj,
 			new Vector3 (pos.x, pos.y, 1),
 			obj.transform.rotation) as GameObject;
+		EnemyStats es = enemy.GetComponent<EnemyStats> ();
+	
+		es.EnemyInit (accessNum);
+
 	}
 
 }

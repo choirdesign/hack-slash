@@ -1,5 +1,6 @@
 ﻿//敵にアタッチ
 //死んでかつ目の前の敵を消す フェードアウト
+//目の前の敵かどうかOnCollisionで判定している
 using UnityEngine;
 using System.Collections;
 
