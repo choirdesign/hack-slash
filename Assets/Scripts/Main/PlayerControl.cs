@@ -17,6 +17,9 @@ public class PlayerControl : MonoBehaviour {
 	//ポーズ用
 	public static bool pauseFlg = false;
 
+	//敵の情報
+	public EnemyStats eStats;
+
 	void Start () {
 		Debug.Log ("start");
 		moveSpeed = 0.1f;
@@ -53,15 +56,24 @@ public class PlayerControl : MonoBehaviour {
 
 	}
 
-
+	//接触した敵の情報を取得
 	private void OnCollisionEnter2D(Collision2D col) {
 		GameObject eInfo;
 		eInfo = col.gameObject;
-		EnemyStats eStats;
+
 		eStats = eInfo.GetComponent<EnemyStats> ();
 		Debug.Log (eStats.eName + "とぶつかった！");
 	}
 
+	public void PlayerAtk() {
+		Debug.Log ("PlayerAtk");
+
+		eStats.eHp -= 1;
+
+		if (eStats.eHp <= 0) {
+			BattleManager.isEnemyDead = true;
+		}
+	}
 
 
 

@@ -14,7 +14,8 @@ public class AtkButton : MonoBehaviour {
 
 	//ボタンが押されたらBattleManagerの攻撃処理を呼ぶ、PlayerCtrlのアニメーション遷移する
 	public void OnPushButton () {
-		battleManager.SendMessage ("PlayerAtk");
+		//battleManager.SendMessage ("PlayerAtk");
+		player.SendMessage ("PlayerAtk");
 		player.SendMessage ("ChangeAnimAtk");
 	}
 

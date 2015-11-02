@@ -46,15 +46,5 @@ public class BattleManager : MonoBehaviour {
 	}
 
 
-	public void PlayerAtk() {
-		Debug.Log ("PlayerAtk");
-		//col = player.GetComponent<Collider2D> ();
-
-		isEnemyDead = true;
-		
-	}
-		
-
-
 
 }
