@@ -1,4 +1,5 @@
 ﻿
+
 //EnemyBuild.enemyEachLine[]を元にステータスを初期化
 using UnityEngine;
 using System.Collections;
@@ -17,9 +18,6 @@ public class EnemyStats : MonoBehaviour {
 	public int exp;
 	private string[] enemyEachInfo;
 
-
-	//スライダに現在のHPを反映させたい
-	//private Slider slider;
 
 	void Update () {
 	
@@ -40,11 +38,9 @@ public class EnemyStats : MonoBehaviour {
 		eHeal = int.Parse (enemyEachInfo [7]);
 		exp = int.Parse (enemyEachInfo [8]);
 
-		Debug.Log(eName + " HPは" + eHp + ", 攻撃力" + eAtk + ", " +
+		Debug.Log(eName + " HP" + eHp + ", 攻撃力" + eAtk + ", " +
 			"防御力" + eDef + ", 攻撃速度" + eSpd + ", 敏捷度" + eAgl + ", 回復力" + eHeal + ", 経験値" + exp);
-
-		//HPゲージに反映させたい
-		//slider = this.GetComponent<Slider> ();
+			
 
 
 

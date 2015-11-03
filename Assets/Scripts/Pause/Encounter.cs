@@ -9,7 +9,7 @@ using System.Collections;
 public class Encounter : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col) {
-		Debug.Log ("encounter");
+		Debug.Log ("encounter at Encounter");
 		PlayerControl.moveSpeed = 0.02f;	//通常時は0.1f
 		this.GetComponent<Animator> ().SetBool ("encount", true);
 	}
@@ -18,7 +18,7 @@ public class Encounter : MonoBehaviour {
 		PlayerControl.moveSpeed = 0.0f;
 		this.GetComponent<Animator> ().SetBool ("encount", false);
 		this.GetComponent<Animator> ().SetBool ("enterBattle", true);
-		Debug.Log ("enter battle");
+		Debug.Log ("enter battle at Encounter");
 
 		//BattleManagerに知らせる
 		BattleManager.isBattle = true;
@@ -34,7 +34,7 @@ public class Encounter : MonoBehaviour {
 		this.GetComponent<Animator> ().SetBool ("playerWin", true);
 		StartCoroutine("Anim");
 
-		Debug.Log ("exit battle");
+		Debug.Log ("exit battle at Encounter");
 
 		//BattleManagerに知らせる
 		BattleManager.isBattle = false;

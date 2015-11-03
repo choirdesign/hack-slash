@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\EnemyStats.cs" />
      <Compile Include="Assets\Increment.cs" />
+     <Compile Include="Assets\PlayerStats.cs" />
      <Compile Include="Assets\Scripts\FloorControl\FloorControl_Distant.cs" />
      <Compile Include="Assets\Scripts\FloorControl\FloorControl_Distant_alt.cs" />
      <Compile Include="Assets\Scripts\FloorControl\FloorControl_Distant_alt2.cs" />

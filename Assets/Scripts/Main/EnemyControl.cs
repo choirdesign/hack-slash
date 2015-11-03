@@ -1,6 +1,7 @@
 ﻿//BattleManager.isEnemyDeadフラグを監視している
 //Destroyの前にフェードアウトさせたい → EnemyDestroyで実装
-//敵の名前を表示　HPのゲージ反映をここでするか、別のクラスにさせるか・・・
+//Textに名前を表示
+//eHpを元にHPゲージを更新
 
 using UnityEngine;
 using System.Collections;
@@ -30,7 +31,6 @@ public class EnemyControl : MonoBehaviour {
 		player = GameObject.FindWithTag ("Player"); //SendMessage用
 
 
-		//自身のEnemyStatsから引数つきで実行されるように改良したい
 		//敵プレハブの子のキャンバスを取得
 		childCanvas = me.gameObject.transform.FindChild ("Canvas").gameObject;
 		//キャンバスの子のテキストオブジェクトを取得
@@ -42,15 +42,14 @@ public class EnemyControl : MonoBehaviour {
 		//自分のテキストに名前を表示
 		myName.text = enemyStats.eName;
 
+		//HPゲージの最大値を敵のHPの最大値で初期化
 		childSlider = childCanvas.gameObject.transform.FindChild ("Slider").gameObject;
 		eHpGauge = childSlider.GetComponent<Slider> ();
-
-		//HPゲージの最大値を敵のHPの最大値で初期化
 		eHpGauge.maxValue = enemyStats.eHp;
 	}
 
 	void Update () {
-		//現在のHPを更新
+		//現在のHPでゲージを更新
 		eHpGauge.value = enemyStats.eHp;
 	}
 
@@ -62,12 +61,7 @@ public class EnemyControl : MonoBehaviour {
 		//死んでないか確認　
 		isDead = BattleManager.isEnemyDead;
 
-		if (!isDead) {
-
-		}
-
-
-		Debug.Log ("衝突中〜");//衝突中はUpdateみたいに走り続ける
+		Debug.Log ("EnemyControlにて衝突検知中");//衝突中はUpdateみたいに走り続ける
 
 		if (isDead) {
 			player.SendMessage ("ExitBattle");
