@@ -1,18 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Main/PlayerControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/EnemyStats.cs">
     <Files>
-      <File FileName="Assets/Resources/CSV/EnemyInfo.csv" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Main/EnemyControl.cs" Line="53" Column="27" />
+      <File FileName="Assets/Scripts/Pause/Encounter.cs" Line="1" Column="1" />
+      <File FileName="Assets/PlayerStats.cs" Line="1" Column="1" />
       <File FileName="Assets/EnemyStats.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Main/EnemyControl.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Main/EnemyBuild.cs" Line="1" Column="1" />
-      <File FileName="Assets/Resources/CSV/Enemies_Stage1.csv" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Main/PlayerControl.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Main/BattleManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Main/AtkButton.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Main/StageManagerColl.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Main/StageBuild.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Pause/Encounter.cs" Line="37" Column="39" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

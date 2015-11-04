@@ -1,4 +1,5 @@
 ﻿//BattleManager.isEnemyDeadフラグを監視している
+//自身のゲームオブジェクトのEnemyStatsを参照
 //Destroyの前にフェードアウトさせたい → EnemyDestroyで実装
 //Textに名前を表示
 //eHpを元にHPゲージを更新
@@ -68,6 +69,17 @@ public class EnemyControl : MonoBehaviour {
 			//Destroy (gameObject);
 
 		}
+
+
+		StartCoroutine ("TestAct", enemyStats.eSpd);
+
 	}
+
+	private IEnumerator TestAct (float speed) {
+
+	}
+
+
+
 		
 }

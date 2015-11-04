@@ -1,5 +1,6 @@
 ﻿//プレイヤーにアタッチ
 //敵に遭遇した時の処理
+//敵との戦闘が終了した時の処理
 //BattleManagerと連携
 //PlayerControlのmoveSpeedを参照している
 
@@ -24,8 +25,8 @@ public class Encounter : MonoBehaviour {
 		BattleManager.isBattle = true;
 	}
 		
+	//なぜか49回くらい呼ばれる
 	void ExitBattle () {
-	
 		//workアニメーションに戻す
 		this.GetComponent<Animator> ().SetBool ("encount", false);
 		this.GetComponent<Animator> ().SetBool ("enterBattle", false);
@@ -38,6 +39,7 @@ public class Encounter : MonoBehaviour {
 
 		//BattleManagerに知らせる
 		BattleManager.isBattle = false;
+
 	}
 
 

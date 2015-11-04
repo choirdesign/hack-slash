@@ -1,9 +1,11 @@
-﻿//Stageでのプレイヤーの挙動を制御する
+﻿//Stage開始時にプレイヤーのステータスを初期化する
+//Stageでのプレイヤーの挙動を制御する
 //侵略度が100になったら勝利アニメーションに切り替え
-//ポーズボタン用のフラグここにたてとくみたいな
+//ポーズボタンが押下された時のフラグ
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour {
 
@@ -17,14 +19,38 @@ public class PlayerControl : MonoBehaviour {
 	//ポーズ用
 	public static bool pauseFlg = false;
 
-	//敵の情報
+	//衝突した敵の情報
 	public EnemyStats eStats;
+
+	//PlayerStatsのステータスを格納する
+	public int pHp;
+	public int pAtk;
+	public int pDef;
+	public int pAgl;
+	public int pHeal;
+
+	//
+	private GameObject pHpGauge;
+	private Slider pHpSlider;
 
 	void Start () {
 		Debug.Log ("start");
 		moveSpeed = 0.1f;
 		pos = transform.localPosition;
 		stageControl = mainCamera.GetComponent<StageControl> ();
+
+		//ステージクリアまで代入
+		pHp   = PlayerStats.hitpoint;
+		pAtk  = PlayerStats.attack;
+		pDef  = PlayerStats.deffence;
+		pAgl  = PlayerStats.agility;
+		pHeal = PlayerStats.heal;
+
+		pHpSlider = GameObject.Find ("PlayerHPGauge").GetComponent<Slider> ();
+
+		pHpSlider.maxValue = pHp;
+
+
 	}
 	
 	// Update is called once per frame
@@ -41,6 +67,14 @@ public class PlayerControl : MonoBehaviour {
 				ChangeAnimWin ();
 			} 
 		}
+
+	
+		//現在のHPでゲージを更新
+		pHpSlider.value = pHp;
+
+
+
+
 	}
 
 	//攻撃アニメーションを表示
@@ -55,13 +89,14 @@ public class PlayerControl : MonoBehaviour {
 
 	}
 
-	//接触した敵の情報を取得
+	//接触した敵の情報を取得 
 	private void OnCollisionEnter2D(Collision2D col) {
 		GameObject eInfo;
 		eInfo = col.gameObject;
 
 		eStats = eInfo.GetComponent<EnemyStats> ();
 		Debug.Log (eStats.eName + "とぶつかった！");
+
 	}
 
 	public void PlayerAtk() {

@@ -12,10 +12,10 @@ public class EnemyStats : MonoBehaviour {
 	public int eHp;
 	public int eAtk;
 	public int eDef;
-	public int eSpd;
+	public float eSpd;
 	public int eAgl;
 	public int eHeal;
-	public int exp;
+	public int eXp;
 	private string[] enemyEachInfo;
 
 
@@ -33,13 +33,13 @@ public class EnemyStats : MonoBehaviour {
 		eHp = int.Parse (enemyEachInfo [2]);
 		eAtk = int.Parse (enemyEachInfo [3]);
 		eDef = int.Parse (enemyEachInfo [4]);
-		eSpd = int.Parse (enemyEachInfo [5]);
+		eSpd = float.Parse (enemyEachInfo [5]);
 		eAgl = int.Parse (enemyEachInfo [6]);
 		eHeal = int.Parse (enemyEachInfo [7]);
-		exp = int.Parse (enemyEachInfo [8]);
+		eXp = int.Parse (enemyEachInfo [8]);
 
 		Debug.Log(eName + " HP" + eHp + ", 攻撃力" + eAtk + ", " +
-			"防御力" + eDef + ", 攻撃速度" + eSpd + ", 敏捷度" + eAgl + ", 回復力" + eHeal + ", 経験値" + exp);
+			"防御力" + eDef + ", 攻撃速度" + eSpd + ", 敏捷度" + eAgl + ", 回復力" + eHeal + ", 経験値" + eXp);
 			
 
 
