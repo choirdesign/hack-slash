@@ -19,7 +19,7 @@ public class PlayerControl : MonoBehaviour {
 	//ポーズ用
 	public static bool pauseFlg = false;
 
-	//衝突した敵の情報
+	//戦闘中の敵の情報
 	public EnemyStats eStats;
 
 	//PlayerStatsのステータスを格納する
@@ -95,7 +95,7 @@ public class PlayerControl : MonoBehaviour {
 		eInfo = col.gameObject;
 
 		eStats = eInfo.GetComponent<EnemyStats> ();
-		Debug.Log (eStats.eName + "とぶつかった！");
+		Debug.Log (eStats.eName + "と戦闘開始");
 
 	}
 

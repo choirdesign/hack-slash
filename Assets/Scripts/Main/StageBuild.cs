@@ -1,9 +1,6 @@
 ﻿//CSVは用意しないで、currentStageの番号で判断
 //シングルトンオブジェクトにくっついている
-//地面の座標がずれる不具合
-
-
-
+//ステージ名の表示を変更する
 
 using UnityEngine;
 using System.Collections;
@@ -22,6 +19,8 @@ public class StageBuild : MonoBehaviour {
 	private SpriteRenderer ground_1;
 	private SpriteRenderer ground_2;
 	private SpriteRenderer ground_3;
+
+	private Text stageName;
 
 	public static int currentStage = 0; //押したボタンからタグの数字が入る
 
@@ -73,14 +72,30 @@ public class StageBuild : MonoBehaviour {
 		ground_2.sprite = Sprite.Create( Gtex2, new Rect( 0, 0, Gtex2.width, Gtex2.height ), new Vector2(0.5f, 0.5f) );
 		ground_3.sprite = Sprite.Create( Gtex3, new Rect( 0, 0, Gtex3.width, Gtex3.height ), new Vector2(0.5f, 0.5f) );
 
-		//1.0
-		//ground_3.sprite = Sprite.Create( Gtex3, new Rect( 0, 0, Gtex3.width, Gtex3.height ), new Vector2(0.5f, 0.5f) );
 
-		/*
-		if (distant.sprite == null) {
-			Debug.Log ("よみこみしっぱい");
+		//ステージシーンの名前を初期化
+		stageName = GameObject.Find ("StageName").GetComponent<Text> ();
+
+		switch(currentStage){
+		case 1:
+			stageName.text = "油面公園";
+			break;
+		case 2:
+			stageName.text = "三春ビル";
+			break;
+
+		default:
+			break;
 		}
-		*/
+
+
+
+
+
+
+
+
+
 	}
 
 }

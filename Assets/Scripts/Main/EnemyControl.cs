@@ -10,10 +10,13 @@ using UnityEngine.UI;
 
 public class EnemyControl : MonoBehaviour {
 
-	//死亡フラグ
+	//敵の死亡フラグ
 	private bool isDead;
 	//isDeadがtrueになったらplayerに知らせる
+	//攻撃時、プレイヤーのステイタスに干渉する
 	private GameObject player;
+	private PlayerControl pstats;
+
 
 	//子オブジェクトにアクセスしたい
 	public GameObject me;
@@ -28,8 +31,12 @@ public class EnemyControl : MonoBehaviour {
 	private GameObject childSlider;
 	private Slider eHpGauge;
 
+	//攻撃時に動かしたい
+	private Transform meTrans;
+
 	void Start () {
-		player = GameObject.FindWithTag ("Player"); //SendMessage用
+		player = GameObject.FindWithTag ("Player"); //SendMessageにも使用
+		pstats = player.GetComponent<PlayerControl>(); //ステータスを参照
 
 
 		//敵プレハブの子のキャンバスを取得
@@ -47,6 +54,10 @@ public class EnemyControl : MonoBehaviour {
 		childSlider = childCanvas.gameObject.transform.FindChild ("Slider").gameObject;
 		eHpGauge = childSlider.GetComponent<Slider> ();
 		eHpGauge.maxValue = enemyStats.eHp;
+
+		meTrans = me.GetComponent<Transform> ();
+
+
 	}
 
 	void Update () {
@@ -71,11 +82,35 @@ public class EnemyControl : MonoBehaviour {
 		}
 
 
-		StartCoroutine ("TestAct", enemyStats.eSpd);
 
 	}
 
+	void OnCollisionEnter2D (Collision2D col){
+			StartCoroutine ("TestAct", enemyStats.eSpd);
+	}
+
+
 	private IEnumerator TestAct (float speed) {
+
+		while (!isDead) {
+			if (isDead) {
+				break;
+			}
+
+			yield return new WaitForSeconds (speed - 0.2f);//speed
+
+			if (!isDead) {
+			Vector3 pos = meTrans.position;
+			pos.x -= 1;
+			meTrans.position = pos;
+				pstats.pHp -= 3;
+			yield return new WaitForSeconds (0.2f);
+			pos.x += 1;
+			meTrans.position = pos;
+
+			Debug.Log ("ぐわー");
+			}
+		}
 
 	}
 

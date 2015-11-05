@@ -14,16 +14,19 @@ public class StageControl : MonoBehaviour {
 	public int rateUpPos = 1; //侵略度更新用
 
 	//座標を監視する
-	public GameObject player;
+	public GameObject player;			//HPも監視
+	private PlayerControl pc;
+	private int playerHp;//いらんか？
 	private Transform playerTrans;
 
 	public GameObject mainCamera; //ゴール処理用
-
-	public Text clearText;		  //ゴール時のテキスト
+	public Text clearText;		  //スタート・ゴール・敗北時のテキスト
 
 	void Start () {
 		playerTrans = player.GetComponent<Transform> ();
 		rateText.text = "侵略度:0%";
+		pc = player.GetComponent<PlayerControl> ();
+
 	}
 	
 	// Update is called once per frame
@@ -33,6 +36,15 @@ public class StageControl : MonoBehaviour {
 		if(playerTrans.position.x >= rateUpPos) {
 			RateUpdate ();
 		}
+
+
+		if (pc.pHp <= 0) {
+			clearText.text = ("侵略失敗…");
+			clearText.canvasRenderer.SetAlpha (1f);
+			Debug.Log ("やられてしまった");
+			FadeManager.Instance.LoadLevel ("StageSelect", 1.0f);
+		}
+
 
 		//侵略度105までのあいだ、カメラが追跡する
 		if (rateUpPos <= 105) {
@@ -64,5 +76,10 @@ public class StageControl : MonoBehaviour {
 
 
 	}
+
+
+
+
+
 
 }

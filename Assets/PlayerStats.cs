@@ -8,7 +8,7 @@ using System.Collections;
 public class PlayerStats : MonoBehaviour {
 
 	//初期値
-	public static int hitpoint = 100;
+	public static int hitpoint = 30;
 	public static int attack = 1;
 	public static int deffence = 1;
 	public static int agility = 1;
