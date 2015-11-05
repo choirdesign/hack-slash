@@ -1,0 +1,41 @@
+<linker>
+	<assembly fullname="Assembly-CSharp">
+		<type fullname="ToSelect">
+			<method name="OnPushButton"/>
+			<method name="OnPushButton"/>
+		</type>
+		<type fullname="SelectButton">
+			<method name="SendStageTag"/>
+			<method name="SendStageTag"/>
+			<method name="SendStageTag"/>
+			<method name="SendStageTag"/>
+			<method name="SendStageTag"/>
+			<method name="SendStageTag"/>
+			<method name="SendStageTag"/>
+			<method name="SendStageTag"/>
+			<method name="SendStageTag"/>
+			<method name="SendStageTag"/>
+		</type>
+		<type fullname="ToStatus">
+			<method name="OnPushButton"/>
+		</type>
+		<type fullname="OnPushReturn">
+			<method name="OnPushButton"/>
+		</type>
+		<type fullname="AtkButton">
+			<method name="OnPushButton"/>
+		</type>
+		<type fullname="OnPushPause">
+			<method name="OnPushButton"/>
+		</type>
+		<type fullname="Increment">
+			<method name="OnPush"/>
+		</type>
+		<type fullname="OnPushQuit">
+			<method name="OnPushButton"/>
+		</type>
+		<type fullname="ToSkill">
+			<method name="OnPushButton"/>
+		</type>
+	</assembly>
+</linker>

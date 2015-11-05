@@ -45,9 +45,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CameraPosTracking.cs" />
+     <Compile Include="Assets\EnemyDamageText.cs" />
      <Compile Include="Assets\EnemyStats.cs" />
      <Compile Include="Assets\Increment.cs" />
      <Compile Include="Assets\PlayerStats.cs" />
+     <Compile Include="Assets\PopupDamageGen.cs" />
      <Compile Include="Assets\Scripts\FloorControl\FloorControl_Distant.cs" />
      <Compile Include="Assets\Scripts\FloorControl\FloorControl_Distant_alt.cs" />
      <Compile Include="Assets\Scripts\FloorControl\FloorControl_Distant_alt2.cs" />
