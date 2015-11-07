@@ -33,6 +33,10 @@ public class PlayerControl : MonoBehaviour {
 	private GameObject pHpGauge;
 	private Slider pHpSlider;
 
+	//ダメージ表示
+	private EDamageTextGen gen;
+
+
 	void Start () {
 		Debug.Log ("start");
 		moveSpeed = 0.1f;
@@ -50,6 +54,9 @@ public class PlayerControl : MonoBehaviour {
 
 		pHpSlider.maxValue = pHp;
 
+		//ダメージ
+		var obj = GameObject.Find ("EDamageTextGen");
+		gen = obj.GetComponent<EDamageTextGen>();
 
 	}
 	
@@ -111,6 +118,10 @@ public class PlayerControl : MonoBehaviour {
 	public void PlayerDamage(int damage){
 		pHp -= damage;
 		Debug.Log (eStats.eName + "から" + damage + "のダメージをうけた。いてー");
+
+		//EDamageTextGenの
+		gen.PDTGen (damage);
+
 	}
 
 
