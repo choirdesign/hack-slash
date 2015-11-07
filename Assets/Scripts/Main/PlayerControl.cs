@@ -29,7 +29,7 @@ public class PlayerControl : MonoBehaviour {
 	public int pAgl;
 	public int pHeal;
 
-	//
+	//HPゲージ
 	private GameObject pHpGauge;
 	private Slider pHpSlider;
 
@@ -102,11 +102,15 @@ public class PlayerControl : MonoBehaviour {
 	public void PlayerAtk() {
 		Debug.Log ("PlayerAtk");
 
-		eStats.eHp -= 1;
+		//ダメージの計算だけして敵の方で減らすか Enemy.EnemyDamage(damage);
+		eStats.EnemyDamage (1);
 
-		if (eStats.eHp <= 0) {
-			BattleManager.isEnemyDead = true;
-		}
+	}
+
+
+	public void PlayerDamage(int damage){
+		pHp -= damage;
+		Debug.Log (eStats.eName + "から" + damage + "のダメージをうけた。いてー");
 	}
 
 

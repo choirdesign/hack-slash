@@ -18,6 +18,14 @@ public class EnemyStats : MonoBehaviour {
 	public int eXp;
 	private string[] enemyEachInfo;
 
+	//ダメージ表示
+	private EDamageTextGen gen;
+
+	void Start() {
+		var obj = GameObject.Find ("EDamageTextGen");
+		gen = obj.GetComponent<EDamageTextGen>();
+	}
+
 
 	void Update () {
 	
@@ -40,8 +48,24 @@ public class EnemyStats : MonoBehaviour {
 
 		Debug.Log(eName + " HP" + eHp + ", 攻撃力" + eAtk + ", " +
 			"防御力" + eDef + ", 攻撃速度" + eSpd + ", 敏捷度" + eAgl + ", 回復力" + eHeal + ", 経験値" + eXp);
-			
 
+
+	}
+		
+
+	public void EnemyDamage (int damage){
+
+		//0以下でDestroy
+		if (eHp <= 0) {
+			BattleManager.isEnemyDead = true;
+		}
+
+
+		eHp -= damage;
+		Debug.Log (eName + " は " + damage + "ダメージうけた。いてー");
+
+		//EDamageTextGenの
+		gen.EDTGen (damage);
 
 
 	}

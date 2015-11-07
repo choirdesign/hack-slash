@@ -34,6 +34,7 @@ public class EnemyControl : MonoBehaviour {
 	//攻撃時に動かしたい
 	private Transform meTrans;
 
+
 	void Start () {
 		player = GameObject.FindWithTag ("Player"); //SendMessageにも使用
 		pstats = player.GetComponent<PlayerControl>(); //ステータスを参照
@@ -103,7 +104,8 @@ public class EnemyControl : MonoBehaviour {
 			Vector3 pos = meTrans.position;
 			pos.x -= 1;
 			meTrans.position = pos;
-				pstats.pHp -= 3;
+
+			pstats.PlayerDamage (3);
 			yield return new WaitForSeconds (0.2f);
 			pos.x += 1;
 			meTrans.position = pos;
