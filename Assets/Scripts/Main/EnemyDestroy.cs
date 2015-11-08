@@ -55,8 +55,7 @@ public class EnemyDestroy : MonoBehaviour {
 				Debug.Log (enemyStats.eXp + "ポイントのけいけんちをてにいれた");
 				Debug.Log ("累計けいけんちは" + PlayerStats.stacXp + "ポイント");
 
-				string key = "STACXP";
-				PlayerPrefs.SetInt (key, PlayerStats.stacXp);
+				PlayerPrefs.SetInt ("STACXP", PlayerStats.stacXp);
 
 				return;
 			}
@@ -79,6 +78,9 @@ public class EnemyDestroy : MonoBehaviour {
 		if (StageBuild.clearLevel <= tagNum) {
 			StageBuild.clearLevel++; //1たす
 			Debug.Log ("ステージ " + StageBuild.clearLevel + " をかいほうしたよ");
+
+			PlayerPrefs.SetInt ("CLEARLEVEL", StageBuild.clearLevel);
+
 		} else  if(StageBuild.clearLevel > tagNum){
 			Debug.Log ("このステージはもうクリアしてるよ");
 			return;

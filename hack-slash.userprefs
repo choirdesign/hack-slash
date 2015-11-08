@@ -1,15 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/EnemyStats.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Main/EnemyDestroy.cs">
     <Files>
-      <File FileName="Assets/Scripts/Main/PlayerControl.cs" Line="138" Column="3" />
-      <File FileName="Assets/Scripts/Main/EnemyControl.cs" Line="85" Column="28" />
+      <File FileName="Assets/Scripts/Main/PlayerControl.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Main/EnemyControl.cs" Line="58" Column="60" />
       <File FileName="Assets/EnemyStats.cs" Line="65" Column="12" />
       <File FileName="Assets/EDamageTextGen.cs" Line="82" Column="23" />
+      <File FileName="Assets/Scripts/Main/EnemyDestroy.cs" Line="81" Column="4" />
       <File FileName="Assets/Resources/Prefabs/DamageCalc.cs" Line="1" Column="1" />
       <File FileName="Assets/EDamageTextAnimFinish.cs" Line="1" Column="1" />
       <File FileName="Assets/WannaBeChild.cs" Line="1" Column="1" />
-      <File FileName="Assets/Resources/CSV/EnemyInfo.csv" Line="1" Column="1" />
+      <File FileName="Assets/Resources/CSV/EnemyInfo.csv" Line="5" Column="50" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

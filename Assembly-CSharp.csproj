@@ -81,6 +81,7 @@
      <Compile Include="Assets\Scripts\SingletonMonoBehaviour.cs" />
      <Compile Include="Assets\Scripts\UI\ClearText.cs" />
      <Compile Include="Assets\Scripts\UI\SelectButton.cs" />
+     <Compile Include="Assets\SetPlayerStats.cs" />
      <Compile Include="Assets\WannaBeChild.cs" />
      <Compile Include="Assets\hogehoge.cs" />
  <Reference Include="UnityEngine.Advertisements">
