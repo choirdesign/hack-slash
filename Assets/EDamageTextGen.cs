@@ -17,12 +17,16 @@ public class EDamageTextGen : MonoBehaviour {
 	public string PopupString; // 表示する文字 (あれ？いらない？
 
 	private int eDamage;
+	private bool eIsHit;
 
 	private int pDamage;
 
+
+
 	//敵のダメージ
-	public void EDTGen (int sendDamage) {
+	public void EDTGen (int sendDamage, bool isHit) {
 		eDamage = sendDamage;
+		eIsHit = isHit;
 		StartCoroutine("Erasure");
 	}
 
@@ -32,8 +36,14 @@ public class EDamageTextGen : MonoBehaviour {
 		var pos = this.PopupPosition;
 
 		Text dText = PopupTextObject.GetComponent<Text> ();
-		dText.text = eDamage.ToString ();
-		//dText.text = "0123456789";
+
+		if (eIsHit) {
+			dText.text = eDamage.ToString ();
+		} else if (!eIsHit) {
+			dText.text = "miss!";
+		}
+
+
 		var valueText = (GameObject)Instantiate (this.PopupTextObject, pos, Quaternion.identity);
 
 		yield return new WaitForSeconds (0.5f);

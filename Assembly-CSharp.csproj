@@ -51,6 +51,7 @@
      <Compile Include="Assets\EnemyStats.cs" />
      <Compile Include="Assets\Increment.cs" />
      <Compile Include="Assets\PlayerStats.cs" />
+     <Compile Include="Assets\Resources\Prefabs\DamageCalc.cs" />
      <Compile Include="Assets\Scripts\FloorControl\FloorControl_Distant.cs" />
      <Compile Include="Assets\Scripts\FloorControl\FloorControl_Distant_alt.cs" />
      <Compile Include="Assets\Scripts\FloorControl\FloorControl_Distant_alt2.cs" />
@@ -78,7 +79,6 @@
      <Compile Include="Assets\Scripts\SceneTransition\ToSkill.cs" />
      <Compile Include="Assets\Scripts\SceneTransition\ToStatus.cs" />
      <Compile Include="Assets\Scripts\SingletonMonoBehaviour.cs" />
-     <Compile Include="Assets\Scripts\TextGen.cs" />
      <Compile Include="Assets\Scripts\UI\ClearText.cs" />
      <Compile Include="Assets\Scripts\UI\SelectButton.cs" />
      <Compile Include="Assets\WannaBeChild.cs" />

@@ -36,6 +36,8 @@ public class PlayerControl : MonoBehaviour {
 	//ダメージ表示
 	private EDamageTextGen gen;
 
+	private DamageCalc damageCalc;
+
 
 	void Start () {
 		Debug.Log ("start");
@@ -58,6 +60,7 @@ public class PlayerControl : MonoBehaviour {
 		var obj = GameObject.Find ("EDamageTextGen");
 		gen = obj.GetComponent<EDamageTextGen>();
 
+		damageCalc = obj.GetComponent<DamageCalc>();
 	}
 	
 	// Update is called once per frame
@@ -102,15 +105,21 @@ public class PlayerControl : MonoBehaviour {
 		eInfo = col.gameObject;
 
 		eStats = eInfo.GetComponent<EnemyStats> ();
-		Debug.Log (eStats.eName + "と戦闘開始");
 
 	}
 
 	public void PlayerAtk() {
-		Debug.Log ("PlayerAtk");
 
 		//ダメージの計算だけして敵の方で減らすか Enemy.EnemyDamage(damage);
-		eStats.EnemyDamage (1);
+
+		//命中判定
+		bool isHit = damageCalc.IsHit (pAgl, eStats.eAgl);
+
+		//ダメージ計算
+		int damage = damageCalc.Calc (pAtk, eStats.eDef);
+
+		//ダメージの数値と命中判定
+		eStats.EnemyDamage (damage, isHit);
 
 	}
 
@@ -121,6 +130,9 @@ public class PlayerControl : MonoBehaviour {
 
 		//EDamageTextGenの
 		gen.PDTGen (damage);
+
+
+
 
 	}
 

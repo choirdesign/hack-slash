@@ -1,5 +1,4 @@
 ﻿
-
 //EnemyBuild.enemyEachLine[]を元にステータスを初期化
 using UnityEngine;
 using System.Collections;
@@ -53,19 +52,22 @@ public class EnemyStats : MonoBehaviour {
 	}
 		
 
-	public void EnemyDamage (int damage){
+	public void EnemyDamage (int damage, bool isHit){
 
 		//0以下でDestroy
 		if (eHp <= 0) {
 			BattleManager.isEnemyDead = true;
 		}
 
-
-		eHp -= damage;
-		Debug.Log (eName + " は " + damage + "ダメージうけた。いてー");
+		if (isHit) {
+			eHp -= damage;
+			Debug.Log (eName + " は " + damage + "ダメージうけた。いてー");
+		} else if (!isHit) {
+			Debug.Log (eName + " は 攻撃をよけた");
+		}
 
 		//EDamageTextGenの
-		gen.EDTGen (damage);
+		gen.EDTGen (damage, isHit);
 
 
 	}
