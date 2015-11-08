@@ -39,8 +39,10 @@ public class EDamageTextGen : MonoBehaviour {
 
 		if (eIsHit) {
 			dText.text = eDamage.ToString ();
+			dText.color = new Color (255, 255, 255);
 		} else if (!eIsHit) {
 			dText.text = "miss!";
+			dText.color = new Color (0, 100, 250);
 		}
 
 
@@ -65,6 +67,7 @@ public class EDamageTextGen : MonoBehaviour {
 
 		Text dText = PopupTextObject.GetComponent<Text> ();
 		dText.text = pDamage.ToString ();
+		dText.color = new Color (255, 255, 255);
 	
 		var valueText = (GameObject)Instantiate (this.PopupTextObject, pos, Quaternion.identity);
 
