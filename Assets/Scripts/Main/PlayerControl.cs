@@ -124,15 +124,17 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 
-	public void PlayerDamage(int damage){
-		pHp -= damage;
-		Debug.Log (eStats.eName + "から" + damage + "のダメージをうけた。いてー");
+	public void PlayerDamage(int damage, bool isHit){
+	
+		if (isHit) {
+			pHp -= damage;
+			Debug.Log (eStats.eName + "から" + damage + "ダメージうけた。いてー");
+		} else if (!isHit) {
+			Debug.Log ("プレイヤーは攻撃をよけた");
+		}
 
-		//EDamageTextGenの
-		gen.PDTGen (damage);
-
-
-
+		//EDamageTextGenのメソッド
+		gen.PDTGen (damage, isHit);
 
 	}
 

@@ -20,7 +20,7 @@ public class EDamageTextGen : MonoBehaviour {
 	private bool eIsHit;
 
 	private int pDamage;
-
+	private bool pIsHit;
 
 
 	//敵のダメージ
@@ -55,7 +55,8 @@ public class EDamageTextGen : MonoBehaviour {
 
 
 	//プレイヤーのダメージ
-	public void PDTGen (int sendDamage) {
+	public void PDTGen (int sendDamage, bool isHit) {
+		pIsHit = isHit;
 		pDamage = sendDamage;
 		StartCoroutine("PErasure");
 	}
@@ -66,9 +67,15 @@ public class EDamageTextGen : MonoBehaviour {
 		var pos = this.PopupPosition;
 
 		Text dText = PopupTextObject.GetComponent<Text> ();
-		dText.text = pDamage.ToString ();
-		dText.color = new Color (255, 255, 255);
-	
+
+		if (pIsHit) {
+			dText.text = pDamage.ToString ();
+			dText.color = new Color (255, 255, 255);
+		} else if (!pIsHit) {
+			dText.text = "miss!";
+			dText.color = new Color (0, 100, 250);
+		}
+
 		var valueText = (GameObject)Instantiate (this.PopupTextObject, pos, Quaternion.identity);
 
 		yield return new WaitForSeconds (0.5f);

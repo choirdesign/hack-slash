@@ -1,6 +1,8 @@
-﻿//敵にアタッチ
-//死んでかつ目の前の敵を消す フェードアウト
+﻿//それぞれ敵にアタッチ
 //目の前の敵かどうかOnCollisionで判定している
+//フェードアウトさせてDestroyさせ
+//消える時に経験値を与える
+
 using UnityEngine;
 using System.Collections;
 
@@ -13,12 +15,19 @@ public class EnemyDestroy : MonoBehaviour {
 	private bool isDead;
 	private bool enemyIdentifier;
 
+	//経験値参照
+	private EnemyStats enemyStats;
+
+
 	// Use this for initialization
 	void Start () {
 		// 初期化
 		enemyIdentifier = false;
 		currentRemainTime = fadeTime;
 		spRenderer = GetComponent<SpriteRenderer>();
+
+		//経験値参照
+		enemyStats = this.gameObject.GetComponent<EnemyStats> ();
 	}
 
 	// 死んだ時&&目の前の敵であるとき
@@ -41,6 +50,14 @@ public class EnemyDestroy : MonoBehaviour {
 				// 残り時間が無くなったら自分自身を消滅
 				GameObject.Destroy (gameObject);
 				BattleManager.isEnemyDead = false;
+
+				PlayerStats.stacXp += enemyStats.eXp;
+				Debug.Log (enemyStats.eXp + "ポイントのけいけんちをてにいれた");
+				Debug.Log ("累計けいけんちは" + PlayerStats.stacXp + "ポイント");
+
+				string key = "STACXP";
+				PlayerPrefs.SetInt (key, PlayerStats.stacXp);
+
 				return;
 			}
 
@@ -69,12 +86,9 @@ public class EnemyDestroy : MonoBehaviour {
 	}
 
 
-
-
-		
 	//目の前の敵
 	void OnCollisionEnter2D (Collision2D col) {
 		enemyIdentifier = true;
 	}
-
+		
 }

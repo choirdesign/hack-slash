@@ -25,10 +25,10 @@ public class DamageCalc : MonoBehaviour {
 
 	public int Calc (int myAtk, int enemyDef){
 		int damage;
-		//int randP = RndPCalc (myAtk);
+		int randP = RndPCalc (myAtk);
 
-		//damage = myAtk / 2 - enemyDef / 4 + (Random.Range (0, randP));
-		damage = myAtk / 2 - enemyDef / 4 + (Random.Range (0, 1));
+		damage = myAtk / 2 - enemyDef / 4 + (Random.Range (0, randP));
+		//damage = myAtk / 2 - enemyDef / 4 + (Random.Range (0, 1));
 
 		if (damage < 0) {
 			damage = 1;

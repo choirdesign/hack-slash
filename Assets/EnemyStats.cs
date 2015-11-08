@@ -58,7 +58,7 @@ public class EnemyStats : MonoBehaviour {
 		if (eHp <= 0) {
 			BattleManager.isEnemyDead = true;
 		}
-
+			
 		if (isHit) {
 			eHp -= damage;
 			Debug.Log (eName + " は " + damage + "ダメージうけた。いてー");
@@ -66,11 +66,14 @@ public class EnemyStats : MonoBehaviour {
 			Debug.Log (eName + " は 攻撃をよけた");
 		}
 
-		//EDamageTextGenの
+		//EDamageTextGenのメソッド
 		gen.EDTGen (damage, isHit);
 
 
 	}
+
+	
+
 
 
 }

@@ -34,8 +34,16 @@ public class EnemyControl : MonoBehaviour {
 	//攻撃時に動かしたい
 	private Transform meTrans;
 
+	//計算用
+	private DamageCalc damageCalc;
+
 
 	void Start () {
+		//ダメージ計算
+		GameObject gen = GameObject.Find ("EDamageTextGen");
+		damageCalc = gen.GetComponent<DamageCalc> ();
+
+
 		player = GameObject.FindWithTag ("Player"); //SendMessageにも使用
 		pstats = player.GetComponent<PlayerControl>(); //ステータスを参照
 
@@ -78,20 +86,16 @@ public class EnemyControl : MonoBehaviour {
 
 		if (isDead) {
 			player.SendMessage ("ExitBattle");
-			//Destroy (gameObject);
-
 		}
-
-
 
 	}
 
 	void OnCollisionEnter2D (Collision2D col){
-			StartCoroutine ("TestAct", enemyStats.eSpd);
+		StartCoroutine ("EnemyAttack", enemyStats.eSpd);
 	}
 
-
-	private IEnumerator TestAct (float speed) {
+	//敵の攻撃
+	private IEnumerator EnemyAttack (float speed) {
 
 		while (!isDead) {
 			if (isDead) {
@@ -101,16 +105,20 @@ public class EnemyControl : MonoBehaviour {
 			yield return new WaitForSeconds (speed - 0.2f);//speed
 
 			if (!isDead) {
-			Vector3 pos = meTrans.position;
-			pos.x -= 1;
-			meTrans.position = pos;
+				Vector3 pos = meTrans.position;
+				pos.x -= 1;
+				meTrans.position = pos;
 
-			pstats.PlayerDamage (3);
-			yield return new WaitForSeconds (0.2f);
-			pos.x += 1;
-			meTrans.position = pos;
+				//命中判定とダメージ
+				bool isHit = damageCalc.IsHit (enemyStats.eAgl, pstats.pAgl);
+				int damage = damageCalc.Calc (enemyStats.eAtk, pstats.pDef);
+			
+				pstats.PlayerDamage (damage, isHit);
+				yield return new WaitForSeconds (0.2f);
+				pos.x += 1;
+				meTrans.position = pos;
 
-			Debug.Log ("ぐわー");
+				Debug.Log ("ぐわー");
 			}
 		}
 
