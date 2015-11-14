@@ -40,6 +40,7 @@ public class PlayerControl : MonoBehaviour {
 
 
 	void Start () {
+
 		Debug.Log ("start");
 		moveSpeed = 0.1f;
 		pos = transform.localPosition;
@@ -61,6 +62,11 @@ public class PlayerControl : MonoBehaviour {
 		gen = obj.GetComponent<EDamageTextGen>();
 
 		damageCalc = obj.GetComponent<DamageCalc>();
+
+
+
+		//確認できたらけして
+		Debug.Log (pHp);
 	}
 	
 	// Update is called once per frame
@@ -118,6 +124,7 @@ public class PlayerControl : MonoBehaviour {
 		//ダメージ計算
 		int damage = damageCalc.Calc (pAtk, eStats.eDef);
 
+		Debug.Log (pAtk + "ポイントの攻撃力でこうげき");
 		//ダメージの数値と命中判定
 		eStats.EnemyDamage (damage, isHit);
 

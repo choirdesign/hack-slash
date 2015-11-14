@@ -85,6 +85,7 @@
      <Compile Include="Assets\Scripts\UpGrade\SetPlayerStats.cs" />
      <Compile Include="Assets\UpGradeScript.cs" />
      <Compile Include="Assets\XPScript.cs" />
+     <Compile Include="Assets\debug.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

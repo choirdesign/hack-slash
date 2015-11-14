@@ -8,13 +8,19 @@ using System.Collections;
 public class PlayerStats : MonoBehaviour {
 
 	//初期値
-	public static int hitpoint = 30;
+	public static int hitpoint = 1;
 	public static int attack = 1;
 	public static int deffence = 1;
 	public static int agility = 1;
 	public static int heal = 1;
 	public static int stacXp = 0;
 
+	//ステータス画面で使うコスト
+	public static int hpCost;
+	public static int atkCost;
+	public static int defCost;
+	public static int aglCost;
+	public static int healCost;
 
 
 

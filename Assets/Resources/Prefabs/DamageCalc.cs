@@ -34,11 +34,8 @@ public class DamageCalc : MonoBehaviour {
 			damage = 1;
 		}
 
-
-		Debug.Log ("Finish Calc");
-
 		//return damage;
-		return 1;
+		return damage;
 	}
 
 	private int RndPCalc (int Atk){
@@ -74,7 +71,7 @@ public class DamageCalc : MonoBehaviour {
 
 		else {
 			randP = 0;
-			Debug.Log ("Atk error!");
+			Debug.Log ("Atk error!");	//攻撃力が0以下？
 		}
 
 		return randP;
