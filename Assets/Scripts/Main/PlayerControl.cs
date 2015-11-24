@@ -47,7 +47,7 @@ public class PlayerControl : MonoBehaviour {
 		stageControl = mainCamera.GetComponent<StageControl> ();
 
 		//ステージクリアまで代入
-		pHp   = PlayerStats.hitpoint;
+		pHp   = PlayerStats.hitpoint * 5;
 		pAtk  = PlayerStats.attack;
 		pDef  = PlayerStats.deffence;
 		pAgl  = PlayerStats.agility;
@@ -62,11 +62,9 @@ public class PlayerControl : MonoBehaviour {
 		gen = obj.GetComponent<EDamageTextGen>();
 
 		damageCalc = obj.GetComponent<DamageCalc>();
-
-
-
-		//確認できたらけして
-		Debug.Log (pHp);
+	
+		//自然回復
+		StartCoroutine ("PlayerHeal", pHeal);
 	}
 	
 	// Update is called once per frame
@@ -111,7 +109,6 @@ public class PlayerControl : MonoBehaviour {
 		eInfo = col.gameObject;
 
 		eStats = eInfo.GetComponent<EnemyStats> ();
-
 	}
 
 	public void PlayerAtk() {
@@ -145,11 +142,38 @@ public class PlayerControl : MonoBehaviour {
 
 	}
 
+	private IEnumerator PlayerHeal (int heal){
+		while (pHp > 0) {
+			if (pHp <= 0) {
+				break;
+			}
+
+
+			if (pHpSlider.maxValue > pHp) {
+
+				pHp += heal;
+			} else if (pHpSlider.maxValue <= pHp) {
+				pHp = (int)pHpSlider.maxValue;
+			}
+
+			PlayerHealTex (heal);
+
+			yield return new WaitForSeconds (3f);
+
+		}
+	}
+
+	private void PlayerHealTex(int heal){
+		gen.PHTGen (heal);
+	}
+
 
 
 	//ステージクリア時のアニメーションに切り替え
 	void ChangeAnimWin () {
 		this.GetComponent<Animator> ().SetBool ("gameClear", true);
 	}
+
+	//敗北時のアニメーション
 		
 }

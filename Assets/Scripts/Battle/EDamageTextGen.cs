@@ -18,16 +18,40 @@ public class EDamageTextGen : MonoBehaviour {
 
 	private int eDamage;
 	private bool eIsHit;
+	private int eHeal;
 
 	private int pDamage;
 	private bool pIsHit;
-
+	private int pHeal;
 
 	//敵のダメージ
 	public void EDTGen (int sendDamage, bool isHit) {
 		eDamage = sendDamage;
 		eIsHit = isHit;
 		StartCoroutine("Erasure");
+	}
+
+	//敵が回復
+	public void EHTGen (int sendHeal) {
+		eHeal = sendHeal;
+		StartCoroutine("HErasure");
+	}
+
+	private IEnumerator HErasure () {
+
+		PopupPosition = new Vector3 (Random.Range(30,130), Random.Range(-30,60), 1);
+		var pos = this.PopupPosition;
+
+		Text dText = PopupTextObject.GetComponent<Text> ();
+
+
+		dText.text = eHeal.ToString ();
+		dText.color = new Color (0, 12, 0);
+		
+		var valueText = (GameObject)Instantiate (this.PopupTextObject, pos, Quaternion.identity);
+
+		yield return new WaitForSeconds (0.5f);
+		Destroy (valueText);
 	}
 
 	private IEnumerator Erasure () {
@@ -60,6 +84,30 @@ public class EDamageTextGen : MonoBehaviour {
 		pDamage = sendDamage;
 		StartCoroutine("PErasure");
 	}
+
+	//プレイヤーが回復
+	public void PHTGen (int sendHeal) {
+		pHeal = sendHeal;
+		StartCoroutine("PHErasure");
+	}
+
+	private IEnumerator PHErasure () {
+
+		PopupPosition = new Vector3 (-50, 50, 1);
+		var pos = this.PopupPosition;
+
+		Text dText = PopupTextObject.GetComponent<Text> ();
+
+
+		dText.text = pHeal.ToString ();
+		dText.color = new Color (0, 12, 0);
+
+		var valueText = (GameObject)Instantiate (this.PopupTextObject, pos, Quaternion.identity);
+
+		yield return new WaitForSeconds (0.5f);
+		Destroy (valueText);
+	}
+
 
 	private IEnumerator PErasure () {
 

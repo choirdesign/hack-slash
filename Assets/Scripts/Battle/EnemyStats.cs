@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class EnemyStats : MonoBehaviour {
 
-	//publicにするのは危ない気もする。。。
+	//publicにするのはよくない気もする。。。
 	public string eName;
 	public int eHp;
 	public int eAtk;
@@ -72,6 +72,10 @@ public class EnemyStats : MonoBehaviour {
 
 	}
 
+
+	public void EnemyHeal (int heal) {
+		gen.EHTGen (heal);
+	}
 	
 
 

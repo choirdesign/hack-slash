@@ -30,7 +30,7 @@ public class DamageCalc : MonoBehaviour {
 		damage = myAtk / 2 - enemyDef / 4 + (Random.Range (0, randP));
 		//damage = myAtk / 2 - enemyDef / 4 + (Random.Range (0, 1));
 
-		if (damage < 0) {
+		if (damage <= 0) {
 			damage = 1;
 		}
 

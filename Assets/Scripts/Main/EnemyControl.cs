@@ -92,6 +92,7 @@ public class EnemyControl : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D col){
 		StartCoroutine ("EnemyAttack", enemyStats.eSpd);
+		StartCoroutine ("EnemyHeal", enemyStats.eHeal);
 	}
 
 	//敵の攻撃
@@ -118,8 +119,30 @@ public class EnemyControl : MonoBehaviour {
 				pos.x += 1;
 				meTrans.position = pos;
 
-				Debug.Log ("ぐわー");
 			}
+		}
+
+	}
+
+
+	private IEnumerator EnemyHeal (int heal) {
+		while (!isDead) {
+			if (isDead) {
+				break;
+			}
+
+
+			if (eHpGauge.maxValue > enemyStats.eHp) {
+
+				enemyStats.eHp += heal;
+			} else if (eHpGauge.maxValue <= enemyStats.eHp) {
+				enemyStats.eHp = (int)eHpGauge.maxValue;
+			}
+
+			enemyStats.EnemyHeal (heal);
+
+			yield return new WaitForSeconds (1f);
+
 		}
 
 	}
